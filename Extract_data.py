@@ -39,6 +39,7 @@ data_columns_new = data.columns
 data.to_csv(ruta_2 + '\owid-co2-data-1990-country.csv', index=False)
 
 print(f'Las categorias eliminadas son: {set(data_columns) - set(data_columns_new)}\n')
+print(f'Las categorias que permanecen son: {set(data_columns_new)}\n')
 
 
 
@@ -66,6 +67,39 @@ data_em.to_csv(ruta_2 + '\emergentes.csv', index=False)
 #   data_ind: dataframe con los paises industrializados
 #   data_em: dataframe con los paises emergentes
 
+
 # Las categorias que se eliminaron son:
+'''
+{'cumulative_other_co2', 'share_of_temperature_change_from_ghg', 'temperature_change_from_n2o', 'trade_co2_share', 
+'energy_per_gdp', 'consumption_co2_per_capita', 'methane', 'temperature_change_from_ch4', 'consumption_co2', 
+'ghg_excluding_lucf_per_capita', 'co2_including_luc_per_gdp', 'co2_per_gdp', 'trade_co2', 'gdp', 'nitrous_oxide', 
+'temperature_change_from_ghg', 'temperature_change_from_co2', 'share_global_other_co2', 'consumption_co2_per_gdp', 
+'methane_per_capita', 'share_global_cumulative_other_co2', 'total_ghg_excluding_lucf', 'ghg_per_capita', 
+'nitrous_oxide_per_capita', 'total_ghg', 'other_industry_co2', 'other_co2_per_capita'}
+'''
+
+# Las categorias que permanecen son:
+'''
+{'co2_including_luc', 'cumulative_coal_co2', 'flaring_co2', 'oil_co2', 'coal_co2', 'coal_co2_per_capita', 
+'land_use_change_co2', 'year', 'share_global_cement_co2', 'share_global_cumulative_coal_co2', 'energy_per_capita', 
+'share_global_cumulative_cement_co2', 'share_global_gas_co2', 'cumulative_flaring_co2', 'oil_co2_per_capita', 
+'co2_per_unit_energy', 'share_global_flaring_co2', 'iso_code', 'co2_including_luc_growth_prct', 'co2', 
+'cumulative_cement_co2', 'population', 'share_global_cumulative_co2_including_luc', 'gas_co2_per_capita', 
+'share_global_cumulative_co2', 'co2_per_capita', 'share_global_cumulative_flaring_co2', 'share_global_coal_co2', 
+'share_global_co2_including_luc', 'cement_co2_per_capita', 'cumulative_co2_including_luc', 'cumulative_gas_co2', 
+'co2_including_luc_per_unit_energy', 'share_global_luc_co2', 'share_global_oil_co2', 'share_global_co2', 'gas_co2', 
+'primary_energy_consumption', 'cement_co2', 'co2_growth_abs', 'country', 'share_global_cumulative_oil_co2', 
+'share_global_cumulative_gas_co2', 'flaring_co2_per_capita', 'co2_including_luc_per_capita', 
+'co2_including_luc_growth_abs', 'cumulative_oil_co2', 'land_use_change_co2_per_capita', 
+'share_global_cumulative_luc_co2', 'cumulative_luc_co2', 'co2_growth_prct', 'cumulative_co2'}
+'''
 
 
+
+# Modificacion del codebook para que permanezcan solo las categorias restantes
+codebook = pd.read_csv(ruta + '\owid-co2-codebook.csv') 
+codebook = codebook[codebook['column'].isin(data_columns_new)]
+codebook.to_csv(ruta_2 + '\owid-co2-codebook-new.csv', index=False)
+
+
+print(f'El nuevo codebook tiene {len(codebook)} categorias\nEL codebook original tiene {len(data_columns)} categorias\n')
