@@ -77,6 +77,7 @@ data_em.to_csv(ruta_2 + '\emergentes.csv', index=False)
 'methane_per_capita', 'share_global_cumulative_other_co2', 'total_ghg_excluding_lucf', 'ghg_per_capita', 
 'nitrous_oxide_per_capita', 'total_ghg', 'other_industry_co2', 'other_co2_per_capita'}
 '''
+#
 
 # Las categorias que permanecen son:
 '''
