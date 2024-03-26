@@ -9,3 +9,4 @@ El objetivo principal de este proyecto es analizar y comprender los diversos fac
 + [Rosario Cabrera](https://github.com/Cabrera07)
 + [María Adames](https://github.com/AGmaria)
 + [Yanis Caballero](https://github.com/Yanis0505)
++ [Ram Singh](https://github.com/ramxv)
